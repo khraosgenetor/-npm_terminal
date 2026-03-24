@@ -10,12 +10,17 @@ const BUILT_IN_HELP = [
 ];
 function useTerminal(banner, commands) {
     const [input, setInput] = (0, react_1.useState)("");
-    const [history, setHistory] = (0, react_1.useState)([{ cmd: "", output: banner }]);
+    const [history, setHistory] = (0, react_1.useState)([
+        { cmd: "", output: banner },
+    ]);
     const [cmdHistory, setCmdHistory] = (0, react_1.useState)([]);
     const [historyIndex, setHistoryIndex] = (0, react_1.useState)(-1);
     function runCommand(cmd) {
         const trimmed = cmd.trim();
         const lower = trimmed.toLowerCase();
+        if (lower === "echo") {
+            return [{ text: "", color: "text-zinc-400" }];
+        }
         if (lower.startsWith("echo ")) {
             return [{ text: trimmed.slice(5), color: "text-zinc-400" }];
         }
@@ -73,7 +78,10 @@ function useTerminal(banner, commands) {
             setHistory([{ cmd: "", output: banner }]);
         }
         else {
-            setHistory((prev) => [...prev, { cmd: input, output: runCommand(input) }]);
+            setHistory((prev) => [
+                ...prev,
+                { cmd: input, output: runCommand(input) },
+            ]);
         }
         setInput("");
     }

@@ -6,5 +6,5 @@ interface TerminalProps {
     prompt?: string;
     className?: string;
 }
-export declare function Terminal({ banner, commands, prompt, className }: TerminalProps): React.JSX.Element;
+export declare function Terminal({ banner, commands, prompt, className, }: TerminalProps): React.JSX.Element;
 export {};

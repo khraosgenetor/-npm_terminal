@@ -37,7 +37,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Terminal = Terminal;
 const react_1 = __importStar(require("react"));
 const useTerminal_1 = require("./useTerminal");
-function Terminal({ banner, commands, prompt = "$ ", className = "" }) {
+function Terminal({ banner, commands, prompt = "$ ", className = "", }) {
     const { input, setInput, history, handleKey } = (0, useTerminal_1.useTerminal)(banner, commands);
     const inputRef = (0, react_1.useRef)(null);
     const bottomRef = (0, react_1.useRef)(null);
