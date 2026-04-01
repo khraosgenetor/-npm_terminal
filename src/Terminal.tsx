@@ -44,7 +44,7 @@ export function Terminal({
         <div key={i} className="mb-1">
           {entry.cmd && (
             <p>
-              <span className="text-green-400">{prompt}</span> {entry.cmd}
+              <span className="text-green-400 whitespace-pre">{prompt}</span> {entry.cmd}
             </p>
           )}
           {entry.output.map((line, j) => (
@@ -55,7 +55,7 @@ export function Terminal({
         </div>
       ))}
       <div className="flex items-center gap-2">
-        <span className="text-green-400">{prompt}</span>
+        <span className="text-green-400 whitespace-pre">{prompt}</span>
         <input
           ref={inputRef}
           value={input}
