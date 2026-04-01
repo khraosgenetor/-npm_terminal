@@ -1,6 +1,6 @@
 {
   "name": "@khraosgenetor/terminal",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Reusable terminal UI component and hook for React/Next.js",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
