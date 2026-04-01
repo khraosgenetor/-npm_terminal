@@ -56,12 +56,11 @@ function Terminal({ banner, commands, prompt = "$ ", className = "", }) {
     }, [history]);
     return (react_1.default.createElement("div", { tabIndex: 0, className: `min-h-[calc(100vh-57px)] bg-black text-white font-mono text-sm p-6 cursor-text ${className}`, onClick: () => { var _a; return (_a = inputRef.current) === null || _a === void 0 ? void 0 : _a.focus(); } },
         history.map((entry, i) => (react_1.default.createElement("div", { key: i, className: "mb-1" },
-            entry.cmd && (react_1.default.createElement("p", null,
+            entry.cmd && (react_1.default.createElement("p", { className: "flex items-center" },
                 react_1.default.createElement("span", { className: "text-green-400 whitespace-pre" }, prompt),
-                " ",
-                entry.cmd)),
+                react_1.default.createElement("span", null, entry.cmd))),
             entry.output.map((line, j) => (react_1.default.createElement("pre", { key: j, className: `${line.color} font-mono leading-tight` }, line.text)))))),
-        react_1.default.createElement("div", { className: "flex items-center gap-2" },
+        react_1.default.createElement("div", { className: "flex items-center" },
             react_1.default.createElement("span", { className: "text-green-400 whitespace-pre" }, prompt),
             react_1.default.createElement("input", { ref: inputRef, value: input, onChange: (e) => setInput(e.target.value), onKeyDown: handleKey, className: "bg-transparent border-none outline-none ring-0 focus:outline-none focus:ring-0 text-white font-mono text-sm flex-1 caret-white", style: { outline: "none", boxShadow: "none" } })),
         react_1.default.createElement("div", { ref: bottomRef })));
