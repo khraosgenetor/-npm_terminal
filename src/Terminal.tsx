@@ -43,8 +43,9 @@ export function Terminal({
       {history.map((entry, i) => (
         <div key={i} className="mb-1">
           {entry.cmd && (
-            <p>
-              <span className="text-green-400 whitespace-pre">{prompt}</span> {entry.cmd}
+            <p className="flex items-center">
+              <span className="text-green-400 whitespace-pre">{prompt}</span>
+              <span>{entry.cmd}</span>
             </p>
           )}
           {entry.output.map((line, j) => (
@@ -54,7 +55,8 @@ export function Terminal({
           ))}
         </div>
       ))}
-      <div className="flex items-center gap-2">
+
+      <div className="flex items-center">
         <span className="text-green-400 whitespace-pre">{prompt}</span>
         <input
           ref={inputRef}
@@ -65,6 +67,7 @@ export function Terminal({
           style={{ outline: "none", boxShadow: "none" }}
         />
       </div>
+
       <div ref={bottomRef} />
     </div>
   );
