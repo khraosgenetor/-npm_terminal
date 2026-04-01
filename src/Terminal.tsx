@@ -22,6 +22,10 @@ export function Terminal({
   const bottomRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    inputRef.current?.focus();
+  }, []);
+
+  useEffect(() => {
     const el = inputRef.current;
     if (el) el.setSelectionRange(el.value.length, el.value.length);
   }, [input]);
@@ -57,8 +61,8 @@ export function Terminal({
           value={input}
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={handleKey}
-          className="bg-transparent border-none outline-none text-white font-mono text-sm flex-1"
-          autoFocus
+          className="bg-transparent border-none outline-none ring-0 focus:outline-none focus:ring-0 text-white font-mono text-sm flex-1 caret-white"
+          style={{ outline: "none", boxShadow: "none" }}
         />
       </div>
       <div ref={bottomRef} />

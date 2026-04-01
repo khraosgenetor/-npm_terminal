@@ -42,6 +42,10 @@ function Terminal({ banner, commands, prompt = "$ ", className = "", }) {
     const inputRef = (0, react_1.useRef)(null);
     const bottomRef = (0, react_1.useRef)(null);
     (0, react_1.useEffect)(() => {
+        var _a;
+        (_a = inputRef.current) === null || _a === void 0 ? void 0 : _a.focus();
+    }, []);
+    (0, react_1.useEffect)(() => {
         const el = inputRef.current;
         if (el)
             el.setSelectionRange(el.value.length, el.value.length);
@@ -59,6 +63,6 @@ function Terminal({ banner, commands, prompt = "$ ", className = "", }) {
             entry.output.map((line, j) => (react_1.default.createElement("pre", { key: j, className: `${line.color} font-mono leading-tight` }, line.text)))))),
         react_1.default.createElement("div", { className: "flex items-center gap-2" },
             react_1.default.createElement("span", { className: "text-green-400" }, prompt),
-            react_1.default.createElement("input", { ref: inputRef, value: input, onChange: (e) => setInput(e.target.value), onKeyDown: handleKey, className: "bg-transparent border-none outline-none text-white font-mono text-sm flex-1", autoFocus: true })),
+            react_1.default.createElement("input", { ref: inputRef, value: input, onChange: (e) => setInput(e.target.value), onKeyDown: handleKey, className: "bg-transparent border-none outline-none ring-0 focus:outline-none focus:ring-0 text-white font-mono text-sm flex-1 caret-white", style: { outline: "none", boxShadow: "none" } })),
         react_1.default.createElement("div", { ref: bottomRef })));
 }
